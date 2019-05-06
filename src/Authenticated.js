@@ -3,7 +3,7 @@ import {getJwt} from "./helpers/jwt";
 import { withRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
-class AuthenticatedComponent extends Component {
+class Authenticated extends Component {
     constructor(props) {
         super(props);
 
@@ -40,4 +40,4 @@ class AuthenticatedComponent extends Component {
     }
 }
 
-export default withRouter(AuthenticatedComponent);
+export default withRouter(Authenticated);
