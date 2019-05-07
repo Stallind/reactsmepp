@@ -4,7 +4,7 @@ import image from '../img/BirdBlue.png';
 
 const Navbar = props => (
     <nav>
-        <img className="navbar-logo" src={image}></img>
+        <img className="navbar-logo" src={image} alt="blue bird"></img>
         {/* <h2 className="logo"><a className="logo-link" href="#">{props.title}</a></h2> */}
 
         <ul className="nav-menu">

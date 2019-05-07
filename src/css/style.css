@@ -98,38 +98,6 @@ nav {
   transition: all 0.3s ease-in-out;
 }
 
-/* .thumnail-container{
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 50px;
-  width: 100%;
-}
-
-.home-thumnail-1, .home-thumnail-2, .home-thumnail-3{
-  background-size: cover;
-  width: 200px;
-  height: 100px;
-  transition: all 0.3s ease-in-out;
-}
-
-.home-thumnail-1:hover, .home-thumnail-2:hover, .home-thumnail-3:hover{
-  transform: scale(1.05);
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.home-thumnail-1{
-  background-image: url('https://www.w3schools.com/w3css/img_lights.jpg')
-}
-
-.home-thumnail-2{
-  background-image: url('https://www.gannett-cdn.com/-mm-/3d4163da6f9c8d4024b714192bad2e4731f11d07/c=41-0-481-331/local/-/media/2018/05/07/MIGroup/BattleCreek/636613035474588578-642567592-1-.jpg?width=534&height=401&fit=crop')
-}
-
-.home-thumnail-3{
-  background-image: url('https://ak5.picdn.net/shutterstock/videos/3775625/thumb/1.jpg')
-} */
-
 .container{
   margin: auto;
   display: inline;
@@ -185,9 +153,9 @@ nav {
 }
 
 .login-label{
-  margin-bottom: 5px;
+  margin-top: 20px;
   font-size: 30px;
- 
+  
 }
 
 .login-type-label{
@@ -203,4 +171,11 @@ nav {
 
 .course-name{
   color: rgb(43, 43, 43);
+}
+
+.logo-img{
+  height: 80px;
+  width: 190px;
+  margin: 5px;
+  padding-right: 90px;
 }

@@ -18,10 +18,11 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Navbar title="# smepp" />
+
             <Route path="/login" component={Login} />
 
             <Authenticated>
+              <Navbar title="# smepp" />
               <Route path="/home" component={Home} />
               <Route path="/protectedpage" component={ProtectedPage} />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
