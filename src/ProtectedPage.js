@@ -19,11 +19,13 @@ class ProtectedPage extends React.Component {
     componentDidMount()  {
         axios.get(apiBaseUrl)
             // Once we get a response, we'll map the API endpoints to our props
-            .then(response =>
-                response.data.results.map(courses => ({
-                    name: `${courses.name}`,
-                    points: `${courses.points}`
+            .then(response => {
+                console.log(response.data);
+               return response.data.map(course => ({
+                    name: `${course.name}`,
+                    points: `${course.points}`
                 }))
+                }
             )
             .then(courses => {
                 this.setState({
@@ -32,23 +34,37 @@ class ProtectedPage extends React.Component {
                 });
             })
             .catch(error => this.setState({ error, isLoading: false }));
-        console.log(this.state.courses);
     }
 
 
 
     render() {
+        const { isLoading, courses} = this.state;
         return (
             <React.Fragment>
                 <h1>
                     Your courses are {}
                 </h1>
+                <div>
+                    {!isLoading ? (
+                        courses.map(course => {
+                            const { name, points} = course;
+                            return (
+                                <div key={name+1}> <p>{name} {points}</p> </div>
+                            );
+                        })
+                    ) : ( <p>Loading..</p>
+                    )}
+                </div>
             </React.Fragment>
         );
     }
 }
 
-
+//           response.data.results.map(courses => ({
+//                     name: `${courses.name}`,
+//                     points: `${courses.points}`
+//                 }))
 
 
 
