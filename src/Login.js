@@ -58,7 +58,7 @@ class Login extends Component {
                 if (response.status === 200) {
                     localStorage.setItem('HemligToken', response.data.value);
                     console.log("Login successfull");
-                    history.push('/protectedpage');
+                    history.push('/home');
                 }
                 else if (response.status === 204) {
                     console.log("Username password do not match");

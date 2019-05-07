@@ -18,9 +18,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-
             <Route path="/login" component={Login} />
-
             <Authenticated>
               <Navbar title="# smepp" />
               <Route path="/home" component={Home} />
