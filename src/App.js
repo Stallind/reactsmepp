@@ -13,6 +13,21 @@ import Course from "./components/course";
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedIn: true,
+    }
+  }
+
+  handleLogout = () => {
+    this.setState({ loggedIn: false});
+    localStorage.removeItem('HemligToken');
+    this.history.push('/login');
+    console.log("Logged out");
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -20,7 +35,7 @@ class App extends Component {
           <Switch>
             <Route path="/login" component={Login} />
             <Authenticated>
-              <Navbar title="# smepp" />
+              <Navbar logout={() => this.handleLogout} title="# smepp" />
               <Route path="/home" component={Home} />
               <Route path="/protectedpage" component={ProtectedPage} />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />

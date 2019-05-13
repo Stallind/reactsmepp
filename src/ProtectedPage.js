@@ -1,13 +1,10 @@
 import React from 'react';
 import axios from "axios";
+import { getJwt } from "./helpers/jwt";
 
-let apiBaseUrl = "https://localhost:44339/api/courses";
+const jwt = getJwt();
 
-// axios.get(apiBaseUrl)
-//     .then( response => {
-//     console.log(response.data);
-//         return response.data;
-//     });
+let apiBaseUrl = "https://localhost:44339/api/teacher";
 
 class ProtectedPage extends React.Component {
     state = {
@@ -17,9 +14,9 @@ class ProtectedPage extends React.Component {
     };
 
     componentDidMount()  {
-        axios.get(apiBaseUrl)
-            // Once we get a response, we'll map the API endpoints to our props
+        axios.get(apiBaseUrl, { headers: {"Authorization" : `Bearer ${jwt}`}})
             .then(response => {
+                console.log(response);
                 console.log(response.data);
                return response.data.map(course => ({
                     name: `${course.name}`,
@@ -61,23 +58,5 @@ class ProtectedPage extends React.Component {
     }
 }
 
-//           response.data.results.map(courses => ({
-//                     name: `${courses.name}`,
-//                     points: `${courses.points}`
-//                 }))
-
-
-
-// const ProtectedPage = () => {
-//
-//     return (
-//             <React.Fragment>
-//                 <h1>
-//                     Your courses are {}
-//                 </h1>
-//             </React.Fragment>
-//
-//     );
-// };
 
 export default ProtectedPage;

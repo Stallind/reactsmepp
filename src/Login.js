@@ -4,7 +4,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import axios from 'axios';
+import axios from 'axios/index';
 import { getJwt } from "./helpers/jwt";
 import './css/style.css';
 import { black } from 'material-ui/styles/colors';

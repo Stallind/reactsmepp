@@ -9,9 +9,10 @@ const Navbar = props => (
 
         <ul className="nav-menu">
             <li><NavLink className="nav-menu-link" exact to="/">Home</NavLink></li>
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Schedule</NavLink></li>
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/teachers">Courses</NavLink></li>
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Courses</NavLink></li>
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/teachers">Schedule</NavLink></li>
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/students">Profile</NavLink></li>
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/logout" onClick={props.logout()}>Log out</NavLink></li>
         </ul>
     </nav>
 

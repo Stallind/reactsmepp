@@ -29,23 +29,21 @@ class Course extends React.Component {
             .catch(error => this.setState({ error, isLoading: false }));
     }
 
+
+
     render() {
         const { isLoading, courses} = this.state;
         return (
             <React.Fragment>
-
-                <div className="main-content">
-                    <div className="container">
-                        <h2 className="course-name">Your courses are: </h2>
-                    </div>
-                </div>
-
+                <h1>
+                    Your courses are {}
+                </h1>
                 <div>
                     {!isLoading ? (
                         courses.map(course => {
                             const { name, points} = course;
                             return (
-                                <div className="course-name" key={name+1}> <p>{name} {points}</p> </div>
+                                <div key={name+1}> <p>{name} {points}</p> </div>
                             );
                         })
                     ) : ( <p>Loading..</p>
@@ -56,32 +54,5 @@ class Course extends React.Component {
     }
 }
 
-export default Course;
 
-// Erlas kod från början på course.js
-//
-// import React from 'react';
-// import { TeachersList } from "../data/teacher"
-// import { Link } from 'react-router-dom';
-//
-// const Course = (props) => {
-//
-//     let teachers = TeachersList.map((person) => {
-//         return (
-//             <div className="teacher-container">
-//                 <h3><Link className="name-container" to="/">{person.name}</Link></h3>
-//             </div>
-//         );
-//     });
-//
-//     return (
-//         <div className="main-content">
-//             <div className="container">
-//                 <h2 className="course-name">{props.title}</h2>
-//                 {teachers}
-//             </div>
-//         </div>
-//     );
-// };
-//
-// export default Course;
+export default Course;
