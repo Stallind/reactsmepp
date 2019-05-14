@@ -24,7 +24,7 @@ class App extends Component {
   handleLogout = () => {
     this.setState({ loggedIn: false});
     localStorage.removeItem('HemligToken');
-    this.history.push('/login');
+    //this.history.push('/login');
     console.log("Logged out");
   };
 

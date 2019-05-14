@@ -78,7 +78,7 @@ class Login extends Component {
         const jwt = getJwt();
 
         if (jwt) {
-            this.props.history.push('/protectedpage');
+            this.props.history.push('/home');
         }
 
         return (
