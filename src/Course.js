@@ -28,7 +28,7 @@ class Course extends React.Component {
             })
             .catch(error => this.setState({ error, isLoading: false }));
     }
-    
+
     render() {
         const { isLoading, courses} = this.state;
         return (

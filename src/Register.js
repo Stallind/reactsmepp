@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
@@ -17,7 +16,7 @@ class Register extends Component {
         }
     }
     handleClick(event){
-        let apiBaseUrl = "http://localhost:4000/api/";
+        let apiBaseUrl = "https://localhost:44339/api/Register";
         console.log("values",this.state.first_name,this.state.last_name,this.state.username,this.state.password);
         //To be done:check for empty values before hitting submit
         let self = this;
@@ -26,7 +25,7 @@ class Register extends Component {
             "last_name":this.state.last_name,
             "username":this.state.username,
             "password":this.state.password
-        }
+        };
         axios.post(apiBaseUrl+'/register', payload)
             .then(function (response) {
                 console.log(response);
@@ -51,9 +50,7 @@ class Register extends Component {
             <div>
                 <MuiThemeProvider>
                     <div>
-                        <AppBar
-                            title="Register"
-                        />
+                        <h2>Register new user</h2>
                         <TextField
                             hintText="Enter your First Name"
                             floatingLabelText="First Name"
