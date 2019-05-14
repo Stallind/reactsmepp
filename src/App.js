@@ -8,7 +8,6 @@ import ProtectedPage from './ProtectedPage';
 import Home from "./components/home";
 import Navbar from "./components/navBar";
 import Schedule from "./components/schedule";
-import Profile from "./components/profile";
 import Course from "./components/course";
 import Register from "./Register";
 
@@ -40,9 +39,9 @@ class App extends Component {
               <Route path="/home" component={Home} />
               <Route path="/protectedpage" component={ProtectedPage} />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
-              <Route path="/profile" render={() => <Profile title="Profile" />} />
               <Route path="/course" render={() => <Course title="Courses" />} />
               <Route path="/register" component={Register} />
+
             </Authenticated>
           </Switch>
         </div>

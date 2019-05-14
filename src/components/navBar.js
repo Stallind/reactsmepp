@@ -11,7 +11,7 @@ const Navbar = props => (
             <li><NavLink className="nav-menu-link" exact to="/home">Home</NavLink></li>
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Courses</NavLink></li>
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/teachers">Schedule</NavLink></li>
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/students">Profile</NavLink></li>
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/register">Register new user</NavLink></li>
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/login" onClick={props.logout()}>Log out</NavLink></li>
         </ul>
     </nav>
