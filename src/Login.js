@@ -75,12 +75,13 @@ class Login extends Component {
 
     }
     render() {
+        // pushing to home during development, remove later
         const jwt = getJwt();
 
         if (jwt) {
             this.props.history.push('/home');
         }
-
+        //
         return (
             <div>
                 <MuiThemeProvider muiTheme={muiTheme}>
