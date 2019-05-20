@@ -10,6 +10,8 @@ import Navbar from "./components/navBar";
 import Schedule from "./components/schedule";
 import Course from "./components/course";
 import Register from "./Register";
+import {getJwt} from "./helpers/jwt";
+import jwt_decode from "jwt-decode";
 
 
 class App extends Component {
@@ -18,6 +20,7 @@ class App extends Component {
 
     this.state = {
       loggedIn: true,
+      role: this.getRole()
     }
   }
 
@@ -26,6 +29,13 @@ class App extends Component {
     localStorage.removeItem('HemligToken');
     //this.history.push('/login');
     console.log("Logged out");
+    console.log(this.state.loggedIn);
+  };
+
+  getRole = () => {
+    const jwt = getJwt();
+    let decoded = jwt_decode(jwt);
+    return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
   };
 
   render() {
@@ -35,7 +45,7 @@ class App extends Component {
           <Switch>
             <Route path="/login" component={Login} />
             <Authenticated>
-              <Navbar logout={() => this.handleLogout} title="# smepp" />
+            <Navbar role={this.state.role} logout={() => this.handleLogout}/>
               <Route path="/home" component={Home} />
               <Route path="/protectedpage" component={ProtectedPage} />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
