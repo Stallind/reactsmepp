@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   handleLogout = () => {
-    this.setState({ loggedIn: false});
+    this.setState({ loggedIn: false });
     localStorage.removeItem('HemligToken');
     //this.history.push('/login');
     console.log("Logged out");
@@ -41,7 +41,6 @@ class App extends Component {
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
               <Route path="/course" render={() => <Course title="Courses" />} />
               <Route path="/register" component={Register} />
-
             </Authenticated>
           </Switch>
         </div>
