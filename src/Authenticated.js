@@ -19,6 +19,7 @@ class Authenticated extends Component {
         if (jwt) {
             let decoded = jwt_decode(jwt);
             this.setState({ user: decoded.name });
+            console.log(decoded.name);
             this.props.history.push('/home');
         }
         else {
@@ -37,6 +38,7 @@ class Authenticated extends Component {
             <div>
                 {this.props.children}
             </div>
+            //<h1>hello {this.state.user}</h1>
         );
     }
 }

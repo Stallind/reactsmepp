@@ -8,6 +8,7 @@ import { getJwt } from "./helpers/jwt";
 
 const jwt = getJwt();
 
+
 class Register extends Component {
     constructor(props) {
         super(props)
@@ -24,24 +25,23 @@ class Register extends Component {
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value });
-    }
+    };
 
     submitHendler = (e) => {
         e.preventDefault();
         console.log(this.state);
         console.log(jwt);
-        let headers = {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${jwt}`
-        }
-        axios.post('https://localhost:44339/api/Register', { headers: { headers } }, this.state)
+
+        axios.post('https://localhost:44339/api/register', this.state, {headers: {'Authorization' : `Bearer ${jwt}`}})
             .then(response => {
+
                 console.log(response);
             })
             .catch(error => {
                 console.log(error);
+
             });
-    }
+    };
 
     render() {
 

@@ -1,19 +1,45 @@
 import React from 'react';
 import axios from "axios";
+import { getJwt } from "../helpers/jwt";
+import jwt_decode from "jwt-decode";
 
-let apiBaseUrl = "https://localhost:44339/api/courses";
+let apiBaseUrlAdmin = "https://localhost:44339/api/courses";
+let apiBaseUrl = "https://localhost:44339/api/courses/user/";
+let currentApi= apiBaseUrlAdmin;
 
 class Course extends React.Component {
-    state = {
-        courses: [],
-        isLoading: true,
-        errors: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            courses: [],
+            isLoading: true,
+            errors: null,
+            role: this.getRole(),
+            id: this.getId()
+        };
+    }
+    getRole = () => {
+        const jwt = getJwt();
+        let decoded = jwt_decode(jwt);
+        return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    };
+
+    getId = () => {
+        const jwt = getJwt();
+        let decoded = jwt_decode(jwt);
+        return decoded["id"]
     };
 
     componentDidMount()  {
-        axios.get(apiBaseUrl)
+        console.log(this.state.role);
+
+        if(this.state.role !== "Admin"){
+            currentApi = `${apiBaseUrl}${this.state.id}`;
+        }
+
+        axios.get(`${currentApi}`)
             .then(response => {
-                    console.log(response.data);
+                    console.log(response);
                     return response.data.map(course => ({
                         name: `${course.name}`,
                         points: `${course.points}`
@@ -27,9 +53,11 @@ class Course extends React.Component {
                 });
             })
             .catch(error => this.setState({ error, isLoading: false }));
+
     }
 
     render() {
+
         const { isLoading, courses} = this.state;
         return (
             <React.Fragment>
