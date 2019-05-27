@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import './css/style.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route} from 'react-router-dom'
 import Authenticated from './Authenticated';
 import Login from "./Login";
 import ProtectedPage from './ProtectedPage';
@@ -20,25 +20,35 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
       role: this.getRole()
     }
   }
 
   handleLogout = () => {
-    this.setState({ loggedIn: false });
     localStorage.removeItem('HemligToken');
+    this.setState({ loggedIn: false, role: false });
     console.log("Logged out");
   };
 
   getRole = () => {
     const jwt = getJwt();
-    if(jwt === null)
-    {
-      return null;
+    if(jwt !== null) {
+      let decoded = jwt_decode(jwt);
+      return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
     }
-    let decoded = jwt_decode(jwt);
-    return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+      return undefined;
+  };
+
+  loginSucceeded = (token) => {
+    localStorage.setItem('HemligToken', token);
+    this.setState({ loggedIn: true });
+    this.history.push("/home");
+
+  };
+
+  loginFailed = () => {
+    console.log("Login failed");
   };
 
   render() {
@@ -46,9 +56,9 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={() => <Login succeeded={this.loginSucceeded} failed={this.loginFailed}/>  } />
             <Authenticated>
-            <Navbar role={this.state.role} logout={() => this.handleLogout}/>
+              <Navbar role={this.state.role} loggedIn={this.state.loggedIn} logout={() => this.handleLogout}/>
               <Route path="/home" component={Home} />
               <Route path="/protectedpage" component={ProtectedPage} />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />

@@ -5,7 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios/index';
-import { getJwt } from "./helpers/jwt";
+//import { getJwt } from "./helpers/jwt";
 import './css/style.css';
 import { black } from 'material-ui/styles/colors';
 import { white } from 'material-ui/styles/colors';
@@ -41,24 +41,38 @@ class Login extends Component {
         }
     }
 
+
     handleClick(event) {
         let apiBaseUrl = "https://localhost:44339/api/login";
 
-        const { history } = this.props;
-
         let payload = {
             "username": this.state.username,
-            "password": this.state.password
+            "password": 'P@ssword1'
+            //"password": this.state.password
         };
+        if (this.state.username === 'a')
+        {
+            payload.username = "janedoe@nomail.com"
+        }else if (this.state.username === 's')
+        {
+            payload.username = "jimdoe@nomail.com"
+        }else if (this.state.username === 't'){
+            payload.username = "johndoe@nomail.com"
+        }
+
+        console.log(payload);
+
+        let succeeded = this.props.succeeded;
 
         axios.post(apiBaseUrl, payload)
             .then(function (response) {
+
+                let token = response.data.value;
+
                 console.log(response);
 
                 if (response.status === 200) {
-                    localStorage.setItem('HemligToken', response.data.value);
-                    console.log("Login successfull");
-                    history.push('/home');
+                    succeeded(token);
                 }
                 else if (response.status === 204) {
                     console.log("Username password do not match");
@@ -76,11 +90,11 @@ class Login extends Component {
     }
     render() {
         // pushing to home during development, remove later
-        const jwt = getJwt();
+        // const jwt = getJwt();
 
-        if (jwt) {
-            this.props.history.push('/home');
-        }
+        // if (jwt) {
+        //     this.props.history.push('/home');
+        // }
 
         return (
             <div>
