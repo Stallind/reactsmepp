@@ -31,23 +31,23 @@ class Course extends React.Component {
         errors: null
     };
 }
-    componentDidMount()  {
-        axios.get(apiBaseUrl)
-            .then(response => {
-                    console.log(response.data);
-                    return response.data.map(course => ({
-                        name: `${course.name}`,
-                        points: `${course.points}`
-                    }))
-                }
-            )
-            .then(courses => {
-                this.setState({
-                    courses,
-                    isLoading: false
-                });
-            })
-            .catch(error => this.setState({ error, isLoading: false }));
+
+    componentDidMount(){
+        axios.get(apiBaseUrl, this.state, {headers: {'Authorization': `Bearer ${jwt}`}})
+        .then(response => {
+            console.log(response.data);
+            return response.data.map(course => ({
+                name: `${course.name}`,
+                points: `${course.points}`
+            }))
+        })
+        .then(courses => {
+            this.setState({
+                courses,
+                isLoading: false
+            });
+        })
+        .catch(error => this.setState({error, isLoading: false}));
     }
 
     changeHandler = (e) => {

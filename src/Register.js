@@ -19,6 +19,7 @@ const muiTheme = getMuiTheme({
 
 const jwt = getJwt();
 
+
 class Register extends Component {
     constructor(props) {
         super(props)
@@ -75,7 +76,7 @@ class Register extends Component {
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value });
-    }
+    };
 
     submitHendler = (e) => {
         e.preventDefault();
@@ -88,7 +89,7 @@ class Register extends Component {
             .catch(error => {
                 console.log(error);
             });
-    }
+    };
 
     render() {
         const { firstName, lastName, socialSecurityNumber, email, password, role, username, isLoading, students, teachers } = this.state;
