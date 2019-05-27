@@ -1,22 +1,54 @@
 import React, { Component } from 'react';
+import jwt_decode from "jwt-decode";
+import axios from "axios";
+import { getJwt } from "../helpers/jwt";
+
+let apiBaseUrl = "https://localhost:44339/api/applicationusers/";
+const jwt = getJwt();
 
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: ''
+            username: '',
+            user: {},
+            id: this.getId(),
+            isLoading: true
         }
     }
 
+    getId = () => {
+        let decoded = jwt_decode(jwt);
+        return decoded["id"]
+    };
+
+    componentDidMount()  {
+          axios.get(`${apiBaseUrl}${this.state.id}`,{ headers: { 'Authorization': `Bearer ${jwt}` } })
+            .then(response => {
+                    console.log(response);
+                    this.setState({user: response.data})
+                }
+            )
+            .then(response => {
+                this.setState({
+                    isLoading: false
+                });
+            })
+            .catch(error => this.setState({ error, isLoading: false }));
+        }
+
     render() {
+        const { isLoading, user} = this.state;
         return (
-            <div className="main-content">
-                <div className="container">
-                    <h1>Per Persson</h1>
-                    <h3>19830503-3000</h3>
-                    <h3>Sommergatan 5</h3>
-                    <h3>256 56 Malmö</h3>
+            <div>
+            {!isLoading ? (
+                <div>
+                <h1>{user.firstName}'s Profile</h1>
+                <p>Fullname: {user.firstName} {user.lastName}</p>
+                <p>Email: {user.email}</p>
                 </div>
+            ) : ( <p>Loading..</p>
+            )}
             </div>
         )};
     }
