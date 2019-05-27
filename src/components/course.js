@@ -1,15 +1,36 @@
 import React from 'react';
 import axios from "axios";
+import { getJwt } from "../helpers/jwt";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { white } from 'material-ui/styles/colors';
+
+const muiTheme = getMuiTheme({
+    raisedButton: {
+        color: 'rgb(23, 54, 75)',
+        textColor: white
+    },
+    textField: {
+        textColor: 'rbg(23, 54, 75)'
+    }
+});
 
 let apiBaseUrl = "https://localhost:44339/api/courses";
+const jwt = getJwt();
 
 class Course extends React.Component {
-    state = {
+    constructor(props){
+    super(props)
+    this.state = {
+        name: '',
+        points: '',
         courses: [],
         isLoading: true,
         errors: null
     };
-
+}
     componentDidMount()  {
         axios.get(apiBaseUrl)
             .then(response => {
@@ -29,29 +50,70 @@ class Course extends React.Component {
             .catch(error => this.setState({ error, isLoading: false }));
     }
 
-    render() {
-        const { isLoading, courses} = this.state;
-        return (
-            <React.Fragment>
+    changeHandler = (e) => {
+        this.setState({[e.target.name]: e.target.value});
+    }
 
-                <div className="main-content">
-                    <div className="container">
-                        <h2 className="course-name">Your courses are: </h2>
+    submitHendler = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        axios.post(apiBaseUrl, this.state, {headers: {'Authorization': `Bearer ${jwt}`}
+    }).then(response => {
+        console.log(response);
+        alert('Course has been registered');
+    })
+    .catch(error => {
+        console.log(error);
+    });
+    }
+
+    render() {
+        const { isLoading, courses, name, points} = this.state;
+        return (
+            <div>
+            {/* // <React.Fragment> */}
+                <MuiThemeProvider muiTheme={muiTheme}>
+                <div className="course-div">
+                    <div className="course-main">
+                        <form onSubmit={this.submitHendler}>
+                            <h3 className="course-new">Register new course</h3>
+                            <div>
+                                <TextField hintText="Enter name of the course" floatingLabelText="Course name" floatingLabelFixed={true} type="text" name="name" value={name} onChange={this.changeHandler}>
+                                </TextField>
+                            </div>
+                            <div>
+                                <TextField hintText="Enter points" floatingLabelText="Course points" floatingLabelFixed={true} type="text" name="points" value={points} onChange={this.changeHandler}>
+                                </TextField>
+                            </div>
+                            <br />
+                            <RaisedButton label="Submit" type="submit"></RaisedButton>
+                        </form>
                     </div>
-                </div>
+                <div className="courses-main-content">
+                    <div className="courses-container">
+                        <h5>Course </h5>
+                        <h5>Points</h5>
+                    </div>
+                
 
                 <div>
                     {!isLoading ? (
                         courses.map(course => {
                             const { name, points} = course;
                             return (
-                                <div className="course-name" key={name+1}> <p>{name} {points}</p> </div>
+                                <div className="course-name-get" key={name+1}> 
+                                <p className="course-get">{name}</p> 
+                                <p className="course-get course-points">{points}</p>
+                                </div>
                             );
                         })
                     ) : ( <p>Loading..</p>
                     )}
                 </div>
-            </React.Fragment>
+                    </div>
+                    </div>
+            </MuiThemeProvider>
+        </div>
         );
     }
 }

@@ -10,14 +10,17 @@ const Navbar = props => (
         <ul className="nav-menu">
             <li><NavLink className="nav-menu-link" exact to="/home">Home</NavLink></li>
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Courses</NavLink></li>
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/teachers">Schedule</NavLink></li>
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/students">Profile</NavLink></li>
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/login" onClick={props.logout()}>Log out</NavLink></li>
+            {/* <li><NavLink className="nav-menu-link" activeClassName="activate" to="/teachers">Schedule</NavLink></li> */}
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/profile">Profile</NavLink></li>
 
-            { props.role === "Admin"
+            {props.role === "Admin"
                 ?
                 <li><NavLink className="nav-menu-link" activeClassName="activate" to="/register">Admin</NavLink></li>
-            : undefined }
+                : undefined}
+
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/login" onClick={props.logout()}>Log out</NavLink></li>
+
+
         </ul>
     </nav>
 

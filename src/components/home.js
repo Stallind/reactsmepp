@@ -4,13 +4,12 @@ const Home = (props) => {
     return (
         <div className="main-content">
             <div className="home-container">
-                <h1>Welcome ...</h1>
                 <br />
                 <h2>News</h2>
                 <div className="home-news">
                     <h3>New schedule for the year 2020</h3>
                     <p>Good morning all students.</p>
-                    <p>This great year is almost over and now we have to start thinking about next year. For all of you that are gratuating this year, congratulations we are so proud of all of you and whish you all the best in the feuater. But for thoes who are not we have finally pupliched the schedule for next year.</p>
+                    <p>This great year is almost over and now we have to start thinking about next year. For all of you that are graduating this year, congratulations we are so proud of all of you and whish you all the best in the future. But for thoes who are not we have finally published the schedule for next year.</p>
                     <p>...</p>
                 </div>
                 <div className="home-news">
@@ -22,7 +21,7 @@ const Home = (props) => {
                 <div className="home-news">
                     <h3>Finally it´s time for a party.</h3>
                     <p>Good evening students.</p>
-                    <p>Yes I said it, we are having a party tonight!! Hope everyone is up for a grate night with me and the teachers and to get to know each other a litle bit better.</p>
+                    <p>Yes I said it, we are having a party tonight!! Hope everyone is up for a great night with me and the teachers and to get to know each other a little bit better.</p>
                     <p>...</p>
                 </div>
 

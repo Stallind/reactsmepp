@@ -81,7 +81,7 @@ class Login extends Component {
         if (jwt) {
             this.props.history.push('/home');
         }
-        //
+
         return (
             <div>
                 <MuiThemeProvider muiTheme={muiTheme}>

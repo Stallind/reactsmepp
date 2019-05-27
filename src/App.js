@@ -12,6 +12,7 @@ import Course from "./components/course";
 import Register from "./Register";
 import {getJwt} from "./helpers/jwt";
 import jwt_decode from "jwt-decode";
+import Profile from "./components/profile";
 
 
 class App extends Component {
@@ -34,6 +35,10 @@ class App extends Component {
 
   getRole = () => {
     const jwt = getJwt();
+    if(jwt === null)
+    {
+      return null;
+    }
     let decoded = jwt_decode(jwt);
     return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
   };
@@ -51,6 +56,7 @@ class App extends Component {
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
               <Route path="/course" render={() => <Course title="Courses" />} />
               <Route path="/register" component={Register} />
+              <Route path="/profile" component={Profile} />
             </Authenticated>
           </Switch>
         </div>

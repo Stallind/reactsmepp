@@ -19,7 +19,7 @@ class Authenticated extends Component {
         if (jwt) {
             let decoded = jwt_decode(jwt);
             this.setState({ user: decoded.name });
-            this.props.history.push('/home');
+            //this.props.history.push('/home');
         }
         else {
             this.props.history.push('/login');
