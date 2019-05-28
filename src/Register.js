@@ -85,6 +85,7 @@ class Register extends Component {
             .then(response => {
                 console.log(response);
                 alert('User has been registered');
+                
             })
             .catch(error => {
                 console.log(error);
