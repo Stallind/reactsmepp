@@ -12,7 +12,7 @@ const Navbar = props => (
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Courses</NavLink></li>
             {/* <li><NavLink className="nav-menu-link" activeClassName="activate" to="/teachers">Schedule</NavLink></li> */}
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/profile">Profile</NavLink></li>
-
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/grades">My Grades</NavLink></li>
             {props.role === "Admin"
                 ?
                 <li><NavLink className="nav-menu-link" activeClassName="activate" to="/register">Admin</NavLink></li>
