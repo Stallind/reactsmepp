@@ -10,7 +10,7 @@ import jwt_decode from 'jwt-decode';
 
 const muiTheme = getMuiTheme({
     raisedButton: {
-        color: 'rgb(23, 54, 75)',
+        color: 'rgb(40, 134, 158)',
         textColor: white
     },
     textField: {
@@ -126,7 +126,7 @@ class adminCourse extends React.Component {
                                     courses.map(course => {
                                         const { name, points } = course;
                                         return (
-                                            <div key={name + 1}>
+                                            <div className="admin-course-get-div" key={name + 1}>
                                                 <p className="admin-course-get">{name}</p>
                                                 <p className="admin-course-get admin-course-points">{points}</p>
                                             </div>
