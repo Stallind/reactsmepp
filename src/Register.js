@@ -140,9 +140,9 @@ class Register extends Component {
                                     students.map(student => {
                                         const {firstName, lastName, email} = student;
                                         return(
-                                            <div key={firstName+1}>
+                                            <div className="reg-student-get-main" key={firstName + 1}>
                                                 <p className="reg-student-get">{firstName} {lastName}</p>
-                                                <p className="reg-student-get"> {email}</p>
+                                                <p className="reg-student-get2"> {email}</p>  
                                             </div>
                                         );
                                     })
