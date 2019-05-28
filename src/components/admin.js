@@ -19,7 +19,7 @@ const Admin = props => (
                 </div>
                 <div className="admin-menu-div">
                     <img className="admin-logo" src={image1} alt="grates-logo"></img>
-                    <li><NavLink className="admin-menu-link">Admin grades</NavLink></li> 
+                    <li><NavLink className="admin-menu-link" to="/adminGrades">Admin grades</NavLink></li> 
                 </div>
             </div>
         </ul>

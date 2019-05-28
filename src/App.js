@@ -10,6 +10,7 @@ import Navbar from "./components/navBar";
 import Schedule from "./components/schedule";
 import Course from "./components/course";
 import AdminCourse from "./components/adminCourse";
+import AdminGrades from "./components/adminGrades";
 import Admin from "./components/admin";
 import Register from "./Register";
 import {getJwt} from "./helpers/jwt";
@@ -61,6 +62,7 @@ class App extends Component {
               <Route path="/register" component={Register} />
               <Route path="/profile" component={Profile} />
               <Route path="/grades" component={Grades} />
+              <Route path="/adminGrades" component={AdminGrades} />
             </Authenticated>
           </Switch>
         </div>
