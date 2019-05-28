@@ -15,6 +15,7 @@ import Register from "./Register";
 import {getJwt} from "./helpers/jwt";
 import jwt_decode from "jwt-decode";
 import Profile from "./components/profile";
+import Grades from './components/grades';
 
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
               <Route path="/admin" component={Admin}/>
               <Route path="/register" component={Register} />
               <Route path="/profile" component={Profile} />
+              <Route path="/grades" component={Grades} />
             </Authenticated>
           </Switch>
         </div>
