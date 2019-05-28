@@ -18,43 +18,11 @@ code {
   margin: auto;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 0px solid grey;
-  padding: 10px 30px;
-  box-shadow: 0px 0.1px 8px 0px rgb(145, 145, 145);
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-}
-
-.nav-menu-link {
-  display: inline-block;
-  margin: 5px;
-  border: 1px solid rgb(211, 211, 211);
-  color: rgb(59, 59, 59);
-  text-decoration: none;
-  border-radius: 2px;
-  padding: 5px 10px;
-  background-color: white;
-  transition: all 0.3s ease-in-out;
-  font-size: 20px;
-}
-
-.nav-menu-link:hover {
-  border: 1px solid rgb(40, 134, 158);
-  color: white;
-  background-color: rgb(40, 134, 158);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.nav-menu-link.activate{
-  background-color: rgb(40, 134, 158);
-  color: white;
+/*NAVBAR-------------------------------------------------*/
+.navbar-logo{
+  width: 15%;
+  height: 20%;
+  background-size: cover;
 }
 
 .logo-link {
@@ -65,251 +33,95 @@ nav {
   padding: 40px;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0px solid grey;
+  padding: 10px 30px;
+  box-shadow: 0px 0.1px 8px 0px rgb(145, 145, 145);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding-top: 20px
+}
+
+.nav-menu-link {
+  display: inline-block;
+  margin: 5px;
+  /* border: 1px solid rgb(211, 211, 211); */
+  color: rgb(59, 59, 59);
+  text-decoration: none;
+  /* border-radius: 2px; */
+  padding: 5px 10px;
+  background-color: white;
+  /*transition: all 0.3s ease-in-out;*/
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-menu-link:hover {
+  border-bottom: 2px solid rgb(40, 134, 158);
+  /* color: white;
+  background-color: rgb(40, 134, 158); */
+  /*transition: all 0.3s ease-in-out;*/
+  cursor: pointer;
+}
+
+.nav-menu-link.activate{
+   border-bottom: 2px solid rgb(40, 134, 158);
+  /* background-color: rgb(40, 134, 158);
+  color: white; */
+}
+/*------------------------------------------------*/
+
+/*ADMIN-------------------------------------------*/
+.admin-nav{
+  display: inline;
+}
+
+.admin-ul{
+  list-style: none;
+  display: flex;
+  text-align: left;
+}
+
+.admin-menu-link{
+  display: inline-flex;
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 155px;
+  padding-top: 25px;
+}
+
+.admin-main-div{
+  display: flex;
+  padding: 20px;
+}
+
+.admin-menu-div{
+  width: 450px;
+  height: 300px;
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  margin: 10px;
+}
+
+.admin-logo{
+  height: 200px;
+  padding-left: 120px;
+  padding-top: 10px;
+}
+/*------------------------------------------------*/
+
+/*HOME--------------------------------------------*/
 .main-content{
   width: 90%;
   margin: auto;
   padding-bottom: 50px;
   text-align: left
-}
-/* 
-.main-content h2{
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 30px;
-} */
-
-.home-image{
-  width: 100%;
-  height: 500px;
-  background-image: url('https://images.pexels.com/photos/1028707/pexels-photo-1028707.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
-  background-size: cover;
-  margin-bottom: 50px;
-  transition: all 0.3s ease-in-out;
-}
-
-.navbar-logo{
-  width: 15%;
-  height: 20%;
-  background-size: cover;
-}
-
-.home-image:hover{
-  cursor: pointer;
-  transform: scale(1.05);
-  transition: all 0.3s ease-in-out;
-}
-
-.container{
-  margin: auto;
-  display: inline;
-  justify-content: space-around;
-}
-
-.student-container{
-  display: flex;
-  text-align: center;
-}
-
-.teacher-container{
-  display: flex;
-  text-align: center;
-  border-bottom: 1px solid rgb(172, 172, 172);
-  font-size: 20px;
-}
-
-.name-container{
-  text-decoration: none;
-  color: black;
-}
-
-.back{
-  display: inline-block;
-  margin: 15px 1px;
-  border: 1px solid black;
-  padding: 3px 8px;
-  border-radius: 2px;
-  background-color: rgb(75, 75, 75);
-  color: white;
-  text-decoration: none;
-}
-
-.image-profile{
-  width: 100%;
-  height: 500px;
-  background-size: cover;
-}
-
-.login-div{
-  margin: auto;
-  /* border: 1px solid rgb(206, 204, 204); */
-  width: 50%;
-  height: 300px;
-  padding: 20px 10px;
-  text-align: center;
-  box-shadow: 0px 0.1px 8px 0px rgb(212, 212, 212);
-}
-
-.login-type{
-  margin: 0 40%;
-}
-
-.login-label{
-  margin-top: 20px;
-  font-size: 30px;
-  
-}
-
-.login-type-label{
-  margin: 20px;
-  padding: 40%;
-}
-
-.profile-img{
-  height: 300px;
-  width: 20%;
-  background-size: cover;
-}
-
-.course-name-div{
-  display: inline;
-  color: white;
-  padding: 20px;
-}
-
-.course-get{
-  display: inline-flex;
-  color: rgb(40, 134, 158);
-  font-size: 18px;
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-.course-name-container{
-  display: flex;
- border-bottom: 1px solid rgb(40, 134, 158);
- color: rgb(40, 134, 158);;
- font-family: Arial, Helvetica, sans-serif;
- margin-left: 50px;
- margin-right: 50px;
-}
-
-.courses-main-content{
-  width: 950px;
-  border: 1px solid rgb(23, 54, 75);
-}
-
-.courses-container{
- display: flex;
-  justify-content: space-between;
-  background-color: rgb(23, 54, 75);
-}
-
-.courses-container h5{
-  padding: 0px 81px;
-  font-size: 20px;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.course-points{
-  margin-left: 550px;
-}
-
-.course-div{
-  display: flex;
-  padding: 30px px;
-  margin: 20px;
-}
-
-.course-main{
-   border: 1px solid rgb(40, 134, 158);
-  padding: 80px 200px;
-  color: rgb(63, 63, 63);
-}
-
-.course-new{
-  font-size: 25px;
-  color: rgb(40, 134, 158);
-  font-family: Arial, Helvetica, sans-serif
-}
-
-.logo-img{
-  height: 80px;
-  width: 190px;
-  margin: 5px;
-  padding-right: 90px;
-}
-
-.reg-container{
-  display: flex;
-  justify-content: center;
-}
-
-.reg-new{
-  font-size: 25px;
-  color: rgb(40, 134, 158);
-  font-family: Arial, Helvetica, sans-serif
-}
-
-.reg-div{
-  display: flex;
-  padding: 30px px;
-  margin: 20px;
-}
-
-.reg-student{
-  background: rgb(23, 54, 75);
-  padding: 30px 30px ;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  height: 20px;
-  width: 290px
-}
-
-.reg-teacher{
-  border: 1px solid rgb(40, 134, 158);
-  padding: 30px 70px;
-  margin: 20px;
-  color: rgb(40, 134, 158);
-}
-
-.reg-name-container{
-  display: inline-flex;
-  justify-content: space-between;
-}
-
-.reg-name-container h5{
-  padding: 0px 81px;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.reg-main{
-  border: 1px solid rgb(40, 134, 158);
-  padding: 80px 200px;
-  color: rgb(63, 63, 63);
-}
-
-.reg-checkbox{
-  display: inline-flex;
-  justify-content: center;
-}
-
-.reg-checkbox p{
-  padding: 5px;
-  font-size: 20px;
-}
-
-.reg-form{
-  padding: 20px;
-  border-radius: 15px;
-}
-
-.reg-div-two{
-  background-color: rgb(23, 54, 75);
 }
 
 .home-news{
@@ -332,8 +144,172 @@ nav {
   color: rgb(40, 134, 158);
 }
 
-.text{
-  color: yellow
+.home-text{
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+  margin-right: 100px
+}
+/*---------------------------------------------*/
+
+/*SCHEDULE-------------------------------------*/
+.container{
+  margin: auto;
+  display: inline;
+  justify-content: space-around;
+}
+/*---------------------------------------------*/
+
+/*LOGIN----------------------------------------*/
+.logo-img{
+  height: 80px;
+  width: 190px;
+  margin: 5px;
+  padding-right: 90px;
+}
+/*---------------------------------------------*/
+
+/*COURSE---------------------------------------*/
+.course-get{
+  display: inline-flex;
+  color: rgb(40, 134, 158);
+  font-size: 18px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.course-name-get{
+  padding: 10px;
+  border-bottom: 1px solid rgb(40, 134, 158);
+}
+
+.course-get-div{
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.courses-main-content{
+   width: auto;
+   margin-top: 20px;
+   margin-left: 120px;
+   margin-right: 120px;
+  background-color: rgb(23, 54, 75);
+}
+
+.courses-container{
+ display: inline-flex;
+  justify-content: space-between;
+}
+
+.courses-container h5{
+  padding: 0px 270px;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.course-points{
+  margin-left: 550px;
+}
+/*---------------------------------------------*/
+
+/*COURSE-ADMIN---------------------------------*/
+.admin-course-get{
+  display: inline-flex;
+  color: rgb(40, 134, 158);
+  font-size: 18px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-courses-main-content{
+  width: 950px;
+  border: 1px solid rgb(23, 54, 75);
+}
+
+.admin-courses-container{
+ display: flex;
+  justify-content: space-between;
+  background-color: rgb(23, 54, 75);
+}
+
+.admin-courses-container h5{
+  padding: 0px 81px;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-course-points{
+  margin-left: 560px;
+}
+
+.admin-course-div{
+  display: flex;
+  padding: 30px px;
+  margin: 20px;
+}
+
+.admin-course-main{
+   border: 1px solid rgb(40, 134, 158);
+  padding: 80px 200px;
+  color: rgb(63, 63, 63);
+}
+
+.admin-course-new{
+  font-size: 25px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif
+}
+/*-----------------------------------------*/
+
+/*REGISTER---------------------------------*/
+.reg-new{
+  font-size: 25px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.reg-div{
+  display: flex;
+  padding: 30px px;
+  margin: 20px;
+}
+
+.reg-student{
+  background: rgb(23, 54, 75);
+  padding: 30px 30px ;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  height: 20px;
+  width: 290px
+}
+
+.reg-name-container{
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.reg-name-container h5{
+  padding: 0px 81px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.reg-main{
+  border: 1px solid rgb(40, 134, 158);
+  padding: 80px 200px;
+  color: rgb(63, 63, 63);
+}
+
+.reg-form{
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.reg-div-two{
+  background-color: rgb(23, 54, 75);
 }
 
 .reg-student-get{
@@ -341,9 +317,5 @@ nav {
   color: white;
   padding: 20px;
 }
-
-.profile-img{
-  margin-top: 70px;
-  background-color: black;
-}
+/*------------------------------------------*/
 
