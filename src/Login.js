@@ -5,12 +5,14 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios/index';
-//import { getJwt } from "./helpers/jwt";
 import './css/style.css';
 import { black } from 'material-ui/styles/colors';
 import { white } from 'material-ui/styles/colors';
 import logo from "./img/BirdBlue.png";
 import { blueA400 } from 'material-ui/styles/colors';
+import {Redirect} from "react-router-dom";
+
+
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -37,9 +39,12 @@ class Login extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
-        }
-    }
+            password: '',
+            loggedIn: false
+        };
+        this.handleClick = this.handleClick.bind(this);
+    };
+
 
 
     handleClick(event) {
@@ -62,10 +67,14 @@ class Login extends Component {
 
         console.log(payload);
 
+        //const { history } = this.props;
+
         let succeeded = this.props.succeeded;
+        let failed  = this.props.failed;
+
 
         axios.post(apiBaseUrl, payload)
-            .then(function (response) {
+            .then( (response) => {
 
                 let token = response.data.value;
 
@@ -73,14 +82,13 @@ class Login extends Component {
 
                 if (response.status === 200) {
                     succeeded(token);
+                    console.log(this.props.loggedIn);
                 }
                 else if (response.status === 204) {
-                    console.log("Username password do not match");
-                    alert("Wrong username/password")
+                    failed("Username password do not match");
                 }
                 else {
-                    console.log("Username does not exists");
-                    alert("Wrong username/password");
+                    failed("Username does not exists");
                 }
             })
             .catch(function (error) {
@@ -97,6 +105,8 @@ class Login extends Component {
         // }
 
         return (
+            <>
+                {this.props.loggedIn ? <Redirect to="/home" /> : null}
             <div>
                 <MuiThemeProvider muiTheme={muiTheme}>
                     <div>
@@ -124,6 +134,7 @@ class Login extends Component {
                     </div>
                 </MuiThemeProvider>
             </div>
+               </>
         );
     }
 }
