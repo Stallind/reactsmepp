@@ -2,10 +2,9 @@ import React from 'react';
 import axios from "axios";
 import { getJwt } from "../helpers/jwt";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { white } from 'material-ui/styles/colors';
+import jwt_decode from 'jwt-decode';
 
 const muiTheme = getMuiTheme({
     raisedButton: {
@@ -18,6 +17,8 @@ const muiTheme = getMuiTheme({
 });
 
 let apiBaseUrl = "https://localhost:44339/api/courses";
+let apiBaseUrlAdmin = "https://localhost:44339/api/courses/user/";
+let currentApi = apiBaseUrl;
 const jwt = getJwt();
 
 class Course extends React.Component {
@@ -28,12 +29,33 @@ class Course extends React.Component {
         points: '',
         courses: [],
         isLoading: true,
-        errors: null
+        errors: null,
+        role: this.getRole(),
+        id: this.getId()
     };
 }
 
+    getRole = () => {
+        const jwt = getJwt();
+        let decoded = jwt_decode(jwt);
+        return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
+    };
+
+    getId = () => {
+        const jwt = getJwt();
+        let decoded = jwt_decode(jwt);
+        return decoded["id"]
+    };
+
     componentDidMount(){
-        axios.get(apiBaseUrl, this.state, {headers: {'Authorization': `Bearer ${jwt}`}})
+        console.log(this.state.role);
+
+        if(this.state.role !== "Admin"){
+            currentApi = `${apiBaseUrlAdmin}${this.state.id}`;
+        }
+
+        // axios.get(apiBaseUrl, this.state, {headers: {'Authorization': `Bearer ${jwt}`}})
+        axios.get(`${currentApi}`)
         .then(response => {
             console.log(response.data);
             return response.data.map(course => ({
@@ -68,35 +90,18 @@ class Course extends React.Component {
     }
 
     render() {
-        const { isLoading, courses, name, points} = this.state;
+        const { isLoading, courses} = this.state;
         return (
             <div>
-            {/* // <React.Fragment> */}
-                <MuiThemeProvider muiTheme={muiTheme}>
-                <div className="course-div">
-                    <div className="course-main">
-                        <form onSubmit={this.submitHendler}>
-                            <h3 className="course-new">Register new course</h3>
-                            <div>
-                                <TextField hintText="Enter name of the course" floatingLabelText="Course name" floatingLabelFixed={true} type="text" name="name" value={name} onChange={this.changeHandler}>
-                                </TextField>
-                            </div>
-                            <div>
-                                <TextField hintText="Enter points" floatingLabelText="Course points" floatingLabelFixed={true} type="text" name="points" value={points} onChange={this.changeHandler}>
-                                </TextField>
-                            </div>
-                            <br />
-                            <RaisedButton label="Submit" type="submit"></RaisedButton>
-                        </form>
-                    </div>
+            <MuiThemeProvider muiTheme={muiTheme}>
+                <div>
                 <div className="courses-main-content">
                     <div className="courses-container">
                         <h5>Course </h5>
                         <h5>Points</h5>
                     </div>
-                
-
-                <div>
+                </div>
+                <div className="course-get-div">
                     {!isLoading ? (
                         courses.map(course => {
                             const { name, points} = course;
@@ -110,7 +115,6 @@ class Course extends React.Component {
                     ) : ( <p>Loading..</p>
                     )}
                 </div>
-                    </div>
                     </div>
             </MuiThemeProvider>
         </div>

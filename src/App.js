@@ -9,10 +9,13 @@ import Home from "./components/home";
 import Navbar from "./components/navBar";
 import Schedule from "./components/schedule";
 import Course from "./components/course";
+import AdminCourse from "./components/adminCourse";
+import Admin from "./components/admin";
 import Register from "./Register";
 import {getJwt} from "./helpers/jwt";
 import jwt_decode from "jwt-decode";
 import Profile from "./components/profile";
+import Grades from './components/grades';
 
 
 
@@ -64,8 +67,11 @@ class App extends Component {
               <Route path="/protectedpage" component={ProtectedPage} />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
               <Route path="/course" render={() => <Course title="Courses" />} />
+              <Route path="/adminCourse" component={AdminCourse}/>
+              <Route path="/admin" component={Admin}/>
               <Route path="/register" component={Register} />
               <Route path="/profile" component={Profile} />
+              <Route path="/grades" component={Grades} />
             </Authenticated>
           </Switch>
         </div>

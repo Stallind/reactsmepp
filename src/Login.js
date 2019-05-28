@@ -85,7 +85,7 @@ class Login extends Component {
                     console.log(this.props.loggedIn);
                 }
                 else if (response.status === 204) {
-                    failed("Username password do not match");
+                    failed("Username/password do not match");
                 }
                 else {
                     failed("Username does not exists");
@@ -111,12 +111,9 @@ class Login extends Component {
                 <MuiThemeProvider muiTheme={muiTheme}>
                     <div>
                         <AppBar
-
                             title={<img src={logo} className="logo-img" alt="logo blue bird" />}
-
                         />
                         <br />
-
                         <TextField
                             hintText="Enter your username"
                             floatingLabelText="Username"
@@ -140,7 +137,6 @@ class Login extends Component {
 }
 const style = {
     margin: 15,
-
 };
 export default Login;
 
