@@ -222,36 +222,42 @@ code {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.admin-course-get-div{
+   border-bottom: 1px solid rgb(209, 209, 209);
+}
+
 .admin-courses-main-content{
+  padding: 15px;
+  margin-left: 20px;
   width: 950px;
-  border: 1px solid rgb(23, 54, 75);
+  box-shadow: 0px 0.1px 8px 0px rgb(209, 209, 209);
 }
 
 .admin-courses-container{
  display: flex;
   justify-content: space-between;
-  background-color: rgb(23, 54, 75);
+  border-bottom: 2px solid rgb(219, 219, 219);
 }
 
 .admin-courses-container h5{
   padding: 0px 81px;
   font-size: 20px;
-  color: white;
+  color: rgb(40, 134, 158);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .admin-course-points{
-  margin-left: 560px;
+  margin-left: 500px;
 }
 
 .admin-course-div{
   display: flex;
-  padding: 30px px;
+  padding: 30px;
   margin: 20px;
 }
 
 .admin-course-main{
-   border: 1px solid rgb(40, 134, 158);
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
   padding: 80px 200px;
   color: rgb(63, 63, 63);
 }
