@@ -52,7 +52,7 @@ class adminGrades extends Component {
         result: this.state.grade}, { headers: { 'Authorization': `Bearer ${jwt}` } })
         .then(response => {
                 console.log(response);
-                alert('grade has been added');
+                alert('Grade has been added');
             })
             .catch(error => {
                 console.log(error);
@@ -106,8 +106,7 @@ class adminGrades extends Component {
     render() {
         const {isLoading, isLoadingUsers,students} = this.state;
         return (
-            <div>
-            <h2>Add a Grade</h2>
+            <div className="grates-main">
             <h2>Select course: </h2>
             {!isLoading ? (
             <div>
@@ -117,8 +116,9 @@ class adminGrades extends Component {
             </select>
             </div>) :
              (<p>Loading...</p>)}
+             <br/>
             <button onClick={this.getUsers}>
-                choose.
+                Submit
             </button>
             
             <h2>Users</h2>
@@ -130,14 +130,14 @@ class adminGrades extends Component {
                             return (
                                 <div className="student-name" key={name+1}>
                                 
-                                <p><input type="radio" name="user" value={id} onChange={this.onUserChanged} /> {name}</p>
+                                    <p><input className="grates-input" type="radio" name="user" value={id} onChange={this.onUserChanged} /> {name}</p>
                                 </div>
                             );
                         })}
-                        <input type="radio" name="grade" value="IG" onChange={this.onGradeChanged} />IG
-                        <input type="radio" name="grade" value="G" onChange={this.onGradeChanged}/>G    
-                        <input type="radio" name="grade" value="VG" onChange={this.onGradeChanged}/>VG
-                        <br></br>
+                        <input className="grates-input" type="radio" name="grade" value="IG" onChange={this.onGradeChanged} />IG
+                        <input className="grates-input" type="radio" name="grade" value="G" onChange={this.onGradeChanged}/>G    
+                        <input className="grates-input" type="radio" name="grade" value="VG" onChange={this.onGradeChanged}/>VG
+                        <br/><br/>
                         <button onClick={this.postGrade}>Create Grade</button>
                 </div>
                 ) :

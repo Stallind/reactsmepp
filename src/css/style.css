@@ -345,3 +345,36 @@ code {
 
 /*------------------------------------------*/
 
+/*GRATES------------------------------------*/
+.grates-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  padding: 20px;
+  margin: 30px 500px;
+  color: #28869e;
+}
+
+.grates-main h2{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #28869e;
+  border-bottom: 2px solid rgb(223, 223, 223);
+}
+
+.grates-main p{
+  color: rgb(40, 134, 158);
+}
+
+.grates-main select{
+   color: rgb(40, 134, 158);
+}
+
+.grates-main button{
+  background-color: rgb(40, 134, 158);
+  border: none;
+  padding: 7px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  border-radius: 5px 5px;
+}
+
+/*------------------------------------------*/
