@@ -45,7 +45,7 @@ class Grades extends React.Component {
     render() {
         const { isLoading, grades} = this.state;
         return (
-            <div>
+            <div className="grates-student-main">
             <h1>My Grades</h1>
             {!isLoading ? (
                 grades.map(grade => {

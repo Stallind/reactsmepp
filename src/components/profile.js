@@ -40,11 +40,11 @@ class Profile extends Component {
     render() {
         const { isLoading, user} = this.state;
         return (
-            <div>
+            <div className="profile-main">
             {!isLoading ? (
-                <div>
-                <h1>{user.firstName}'s Profile</h1>
-                <p>Fullname: {user.firstName} {user.lastName}</p>
+                <div >
+                <h1>{user.firstName}'s profile</h1>
+                <p>Name: {user.firstName} {user.lastName}</p>
                 <p>Email: {user.email}</p>
                 </div>
             ) : ( <p>Loading..</p>
