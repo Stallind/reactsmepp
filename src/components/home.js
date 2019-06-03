@@ -24,7 +24,6 @@ class Home extends Component {
     render(){
 
         let user = this.props.user;
-      console.log(user);
 
     return (
         <div>
