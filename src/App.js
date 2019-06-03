@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import './css/style.css';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Authenticated from './Authenticated';
 import Login from "./Login";
-import ProtectedPage from './ProtectedPage';
 import Home from "./components/home";
 import Navbar from "./components/navBar";
 import Schedule from "./components/schedule";
@@ -18,21 +17,28 @@ import Profile from "./components/profile";
 import Grades from './components/grades';
 
 
-
 class App extends Component {
   constructor(props) {
     super(props);
-  console.log(props);
     this.state = {
       loggedIn: false,
-      role: this.getRole()
-
+      role: this.getRole(),
+     // user: this.getUser()
     };
   }
 
+  getUser = () => {
+    const jwt = getJwt();
+    if(jwt !== null) {
+      let user = jwt_decode(jwt);
+      return user;
+    }
+    return undefined;
+  };
+
   handleLogout = () => {
     localStorage.removeItem('HemligToken');
-    this.setState({ loggedIn: false, role: false });
+    this.setState({ loggedIn: false, role: false , user: undefined});
     console.log("Logged out");
   };
 
@@ -45,10 +51,9 @@ class App extends Component {
       return undefined;
   };
 
-
   loginSucceeded = (token) => {
     localStorage.setItem('HemligToken', token);
-    this.setState({ loggedIn: true, role: this.getRole() });
+    this.setState({ loggedIn: true, role: this.getRole()});
   };
 
   loginFailed = (message) => {
@@ -63,8 +68,7 @@ class App extends Component {
             <Route path="/login" component={() => <Login succeeded={this.loginSucceeded} failed={this.loginFailed} loggedIn={this.state.loggedIn}/>  } />
             <Authenticated>
               <Navbar role={this.state.role} loggedIn={this.state.loggedIn} logout={() => this.handleLogout}/>
-              <Route path="/home" component={Home} />
-              <Route path="/protectedpage" component={ProtectedPage} />
+              <Route path="/home" component={() => <Home user={this.getUser()}  /> } />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
               <Route path="/course" render={() => <Course title="Courses" />} />
               <Route path="/adminCourse" component={AdminCourse}/>

@@ -67,28 +67,22 @@ class Login extends Component {
 
         console.log(payload);
 
-        //const { history } = this.props;
-
         let succeeded = this.props.succeeded;
         let failed  = this.props.failed;
 
 
         axios.post(apiBaseUrl, payload)
             .then( (response) => {
-
                 let token = response.data.value;
-
-                console.log(response);
 
                 if (response.status === 200) {
                     succeeded(token);
-                    console.log(this.props.loggedIn);
                 }
                 else if (response.status === 204) {
-                    failed("Username/password do not match");
+                    failed("Username/password is incorrect");
                 }
                 else {
-                    failed("Username does not exists");
+                    failed("Can't connect to login-server");
                 }
             })
             .catch(function (error) {
@@ -97,13 +91,6 @@ class Login extends Component {
 
     }
     render() {
-        // pushing to home during development, remove later
-        // const jwt = getJwt();
-
-        // if (jwt) {
-        //     this.props.history.push('/home');
-        // }
-
         return (
             <>
                 {this.props.loggedIn ? <Redirect to="/home" /> : null}
