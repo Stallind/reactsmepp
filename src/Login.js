@@ -65,8 +65,6 @@ class Login extends Component {
             payload.username = "johndoe@nomail.com"
         }
 
-        console.log(payload);
-
         let succeeded = this.props.succeeded;
         let failed  = this.props.failed;
 

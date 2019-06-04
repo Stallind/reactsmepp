@@ -48,16 +48,12 @@ class Course extends React.Component {
     };
 
     componentDidMount(){
-        console.log(this.state.role);
-
         if(this.state.role !== "Admin"){
             currentApi = `${apiBaseUrlAdmin}${this.state.id}`;
         }
 
-        // axios.get(apiBaseUrl, this.state, {headers: {'Authorization': `Bearer ${jwt}`}})
         axios.get(`${currentApi}`)
         .then(response => {
-            console.log(response.data);
             return response.data.map(course => ({
                 name: `${course.name}`,
                 points: `${course.points}`

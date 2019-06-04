@@ -19,7 +19,6 @@ const muiTheme = getMuiTheme({
 
 const jwt = getJwt();
 
-
 class Register extends Component {
     constructor(props) {
         super(props)
@@ -36,29 +35,28 @@ class Register extends Component {
             isLoading: true,
             errors: null
         }
+
     }
 
-    componentDidMount() {
+    updateUsers = () => {
         axios.get('https://localhost:44339/api/applicationUsers/role/student/', this.state, { headers: { 'Authorization': `Bearer ${jwt}` } })
-        .then(response => {
-            console.log(response.data);
-            return response.data.map(student => ({
-                firstName: `${student.firstName}`,
-                lastName: `${student.lastName}`,
-                email: `${student.email}`
-            }))
-        })
-        .then(students => {
-            this.setState({
-                students,
-                isLoading: false
-            });
-        })
-        .catch(error => this.setState({ error, isLoading: false}));
+            .then(response => {
+                return response.data.map(student => ({
+                    firstName: `${student.firstName}`,
+                    lastName: `${student.lastName}`,
+                    email: `${student.email}`
+                }))
+            })
+            .then(students => {
+                this.setState({
+                    students,
+                    isLoading: false
+                });
+            })
+            .catch(error => this.setState({ error, isLoading: false}));
 
         axios.get('https://localhost:44339/api/applicationUsers/role/teacher/', this.state, { headers: { 'Authorization': `Bearer ${jwt}` } })
             .then(response => {
-                console.log(response.data);
                 return response.data.map(teacher => ({
                     firstName: `${teacher.firstName}`,
                     lastName: `${teacher.lastName}`,
@@ -72,6 +70,10 @@ class Register extends Component {
                 });
             })
             .catch(error => this.setState({ error, isLoading: false }));
+    };
+
+    componentDidMount() {
+        this.updateUsers();
     }
 
     changeHandler = (e) => {
@@ -80,12 +82,18 @@ class Register extends Component {
 
     submitHendler = (e) => {
         e.preventDefault();
-        console.log(this.state);
         axios.post('https://localhost:44339/api/register', this.state, { headers: { 'Authorization': `Bearer ${jwt}` } })
             .then(response => {
                 console.log(response);
                 alert('User has been registered');
-                
+                this.updateUsers();
+                this.setState({firstName: '',
+                    lastName: '',
+                    socialSecurityNumber: '',
+                    email: '',
+                    password: '',
+                    role: '',
+                    username: ''});
             })
             .catch(error => {
                 console.log(error);

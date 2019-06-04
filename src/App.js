@@ -39,7 +39,7 @@ class App extends Component {
   handleLogout = () => {
     localStorage.removeItem('HemligToken');
     this.setState({ loggedIn: false, role: false });
-    console.log("Logged out");
+    alert("Successfully logged out");
   };
 
   getRole = () => {
