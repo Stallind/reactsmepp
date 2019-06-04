@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getJwt } from "./helpers/jwt";
+import { getJwt } from "../helpers/jwt";
 import { withRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 

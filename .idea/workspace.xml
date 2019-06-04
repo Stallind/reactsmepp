@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="827f1720-03a9-4551-9d4d-3fff94ebe647" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,26 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Register.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="48">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -66,6 +47,7 @@
       <find>loggedin</find>
       <find>role</find>
       <find>console.log</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,10 +73,10 @@
         <option value="$PROJECT_DIR$/src/components/profile.js" />
         <option value="$PROJECT_DIR$/src/components/home.js" />
         <option value="$PROJECT_DIR$/src/Login.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/course.js" />
         <option value="$PROJECT_DIR$/src/components/navBar.js" />
         <option value="$PROJECT_DIR$/src/Register.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -201,12 +183,12 @@
       <workItem from="1557731776359" duration="10126000" />
       <workItem from="1558334078996" duration="15125000" />
       <workItem from="1559685761145" duration="59000" />
-      <workItem from="1559685884714" duration="4275000" />
+      <workItem from="1559685884714" duration="4557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145561000" />
+    <option name="totallyTimeSpent" value="145843000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="2" width="1344" height="784" extended-state="0" />
@@ -379,7 +361,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1296">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
@@ -428,23 +410,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/Register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="21" column="22" lean-forward="true" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="2136">
+          <caret line="89" column="45" lean-forward="true" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Register.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="52" column="36" lean-forward="true" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="48">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
         </state>
       </provider>
     </entry>

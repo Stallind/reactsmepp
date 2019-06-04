@@ -5,10 +5,10 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios/index';
-import './css/style.css';
+import '../css/style.css';
 import { black } from 'material-ui/styles/colors';
 import { white } from 'material-ui/styles/colors';
-import logo from "./img/BirdBlue.png";
+import logo from "../img/BirdBlue.png";
 import { blueA400 } from 'material-ui/styles/colors';
 import {Redirect} from "react-router-dom";
 

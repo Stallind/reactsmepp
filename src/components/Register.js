@@ -3,7 +3,7 @@ import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { getJwt } from "./helpers/jwt";
+import { getJwt } from "../helpers/jwt";
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { white } from 'material-ui/styles/colors';
 
