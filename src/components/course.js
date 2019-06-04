@@ -94,7 +94,7 @@ class Course extends React.Component {
         return (
             <div>
             <MuiThemeProvider muiTheme={muiTheme}>
-                <div>
+                    <div className="courses-main">
                 <div className="courses-main-content">
                     <div className="courses-container">
                         <h5>Course </h5>
