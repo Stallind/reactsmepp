@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import './css/style.css';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import Authenticated from './components/Authenticated';
 import Login from "./components/Login";
 import Home from "./components/home";
@@ -68,13 +68,14 @@ class App extends Component {
             <Route path="/login" component={() => <Login succeeded={this.loginSucceeded} failed={this.loginFailed} loggedIn={this.state.loggedIn}/>  } />
             <Authenticated>
               <Navbar role={this.state.role} loggedIn={this.state.loggedIn} logout={() => this.handleLogout}/>
+              <Route exact path="/" render={() => <Redirect to="/home"/> } />
               <Route path="/home" component={() => <Home user={this.getUser()}  /> } />
               <Route path="/schedule" render={() => <Schedule title="Schedule" />} />
               <Route path="/course" render={() => <Course title="Courses" />} />
               <Route path="/adminCourse" component={AdminCourse}/>
               <Route path="/admin" component={Admin}/>
               <Route path="/register" component={Register} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profile" component={() => <Profile user={this.getUser()}  /> } />
               <Route path="/grades" component={Grades} />
               <Route path="/adminGrades" component={AdminGrades} />
             </Authenticated>

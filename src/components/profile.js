@@ -25,9 +25,8 @@ class Profile extends Component {
     };
 
     componentDidMount()  {
-          axios.get(`${apiBaseUrl}${this.state.id}`,{ headers: { 'Authorization': `Bearer ${jwt}` } })
+        axios.get(`${apiBaseUrl}${this.state.id}`,{ headers: { 'Authorization': `Bearer ${jwt}` } })
             .then(response => {
-                    console.log(response);
                     this.setState({user: response.data})
                 }
             )
@@ -37,22 +36,22 @@ class Profile extends Component {
                 });
             })
             .catch(error => this.setState({ error, isLoading: false }));
-        }
+    }
 
     render() {
         const { isLoading, user} = this.state;
         return (
             <div className="profile-main">
-            {!isLoading ? (
-                <div >
-                <h1>{user.firstName}'s profile</h1>
-                <p>Name: {user.firstName} {user.lastName}</p>
-                <p>Email: {user.email}</p>
-                </div>
-            ) : ( <p>Loading..</p>
-            )}
+                {!isLoading ? (
+                    <div >
+                        <h1>{user.firstName}'s profile</h1>
+                        <p>Name: {user.firstName} {user.lastName}</p>
+                        <p>Email: {user.email}</p>
+                    </div>
+                ) : ( <p>Loading..</p>
+                )}
             </div>
         )};
-    }
-
+}
 export default Profile;
+
