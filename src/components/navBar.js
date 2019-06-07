@@ -19,7 +19,7 @@ const Navbar = props => (
             : undefined}
 
 
-            {props.role === "Admin" ?
+            {props.role === "Admin" || props.role === "Teacher" ?
                 <li><NavLink className="nav-menu-link" activeClassName="activate" to="/admin">admin</NavLink></li>
                 : undefined}
 

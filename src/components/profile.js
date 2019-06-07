@@ -11,23 +11,17 @@ class Profile extends Component {
         super(props);
         this.state = {
             username: '',
-            user: {},
-            id: this.getId(),
+            user: this.props.user,
+            newUser: {},
+            id: this.props.user.id,
             isLoading: true
         }
     }
 
-    getId = () => {
-        if(jwt !== null) {
-            let decoded = jwt_decode(jwt);
-            return decoded["id"]
-        }
-    };
-
     componentDidMount()  {
         axios.get(`${apiBaseUrl}${this.state.id}`,{ headers: { 'Authorization': `Bearer ${jwt}` } })
             .then(response => {
-                    this.setState({user: response.data})
+                    this.setState({newUser: response.data})
                 }
             )
             .then(response => {
@@ -39,14 +33,14 @@ class Profile extends Component {
     }
 
     render() {
-        const { isLoading, user} = this.state;
+        const { isLoading, user, newUser} = this.state;
         return (
             <div className="profile-main">
                 {!isLoading ? (
                     <div >
-                        <h1>{user.firstName}'s profile</h1>
-                        <p>Name: {user.firstName} {user.lastName}</p>
-                        <p>Email: {user.email}</p>
+                        <h1>{user.name}'s profile</h1>
+                        <p>Name: {newUser.firstName} {newUser.lastName}</p>
+                        <p>Email: {newUser.email}</p>
                     </div>
                 ) : ( <p>Loading..</p>
                 )}

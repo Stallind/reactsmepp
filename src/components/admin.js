@@ -8,8 +8,10 @@ import image2 from '../img/User-logo.jpg';
 const Admin = props => (
     <nav className="admin-nav">
         <ul className="admin-ul">
+            
+            {props.role === "Admin" ?
             <div className="admin-main-div">
-                <div className="admin-menu-div">
+            <div className="admin-menu-div">
                     <img className="admin-logo" src={image} alt="reg-logo"></img>
                     <li><NavLink className="admin-menu-link" to="/adminCourse">Admin course</NavLink></li>
                 </div>
@@ -17,6 +19,9 @@ const Admin = props => (
                     <img className="admin-logo" src={image2} alt="user-logo"></img>
                     <li><NavLink className="admin-menu-link" to="/register">Admin register</NavLink></li>
                 </div>
+            </div>
+                : undefined}
+                <div className="admin-main-div">
                 <div className="admin-menu-div">
                     <img className="admin-logo" src={image1} alt="grates-logo"></img>
                     <li><NavLink className="admin-menu-link" to="/adminGrades">Admin grades</NavLink></li> 

@@ -71,7 +71,7 @@ class App extends Component {
               <Route path="/home" component={() => <Home user={this.getUser()}  /> } />
               <Route path="/course" render={() => <Course title="Courses" />} />
               <Route path="/adminCourse" component={AdminCourse}/>
-              <Route path="/admin" component={Admin}/>
+              <Route path="/admin" component={() => <Admin role={this.state.role}/>}/>
               <Route path="/register" component={Register} />
               <Route path="/profile" component={() => <Profile user={this.getUser()}  /> } />
               <Route path="/grades" component={Grades} />
