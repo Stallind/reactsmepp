@@ -107,7 +107,7 @@ class Register extends Component {
     };
 
     render() {
-        const { firstName, lastName, socialSecurityNumber, email, password, role, isLoading, students, teachers } = this.state;
+        const { firstName, lastName, socialSecurityNumber, email, password, isLoading, students, teachers } = this.state;
         return (
             <div>
                 <MuiThemeProvider muiTheme={muiTheme}>

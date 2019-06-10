@@ -24,7 +24,7 @@ class Home extends Component {
     render(){
 
         let user = this.props.user;
-        var bacground = require('../img/happy.jpg');
+
     return (
         <div>
             <div>
