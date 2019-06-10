@@ -23,26 +23,25 @@ class adminGrades extends Component {
         }
         
     }
+
     onGradeChanged = (e) => {
         this.setState({
           grade: e.currentTarget.value
           });
-          console.log(this.state.grade);
-        }
+        };
+
     onUserChanged = (e) => {
         this.setState({
           userId: e.currentTarget.value
           });
-          console.log(this.state.userId);
-          
-        }
+        };
 
     handleChange = (e) => {
         let index = e.nativeEvent.target.selectedIndex;
         let label = e.nativeEvent.target[index].value;
         let value = e.target.value;
         this.setState({ courseId: value, courseLabel: label});
-    }
+    };
 
     postGrade = () => {
         axios.post(`${apiBaseUrl}grades`,{
@@ -51,18 +50,18 @@ class adminGrades extends Component {
         courseId: this.state.courseId,
         result: this.state.grade}, { headers: { 'Authorization': `Bearer ${jwt}` } })
         .then(response => {
-                console.log(response);
+
                 alert('Grade has been added');
             })
             .catch(error => {
                 console.log(error);
             });
-    }
+    };
 
     getUsers = () =>{
         axios.get(`${apiBaseUrl}applicationUsers/course/${this.state.courseId}`)
         .then(response => {
-                console.log(response);
+
                 return response.data.map(student => ({
                     id: `${student.id}`,
                     name: `${student.firstName} ${student.lastName}`,
@@ -77,7 +76,8 @@ class adminGrades extends Component {
             });
         })
         .catch(error => this.setState({ error, isLoadingUsers: false }));
-    } 
+    };
+
     getId = () => {
         let decoded = jwt_decode(jwt);
         return decoded["id"]
@@ -86,7 +86,7 @@ class adminGrades extends Component {
     componentDidMount(){
         axios.get(`${apiBaseUrl}courses/user/${this.state.id}`)
         .then(response => {
-                console.log(response);
+
                 return response.data.map(course => ({
                     id: `${course.id}`,
                     name: `${course.name}`,
@@ -104,14 +104,14 @@ class adminGrades extends Component {
     }
 
     render() {
-        const {isLoading, isLoadingUsers,students} = this.state;
+        const {isLoading, isLoadingUsers, students} = this.state;
         return (
             <div className="grates-main">
             <h2>Select course: </h2>
             {!isLoading ? (
             <div>
-            <select  onChange={this.handleChange}>
-            <option key={'väljkurs'} value="" disabled selected>{'Choose Course'}</option>
+            <select defaultValue={-1} onChange={this.handleChange}>
+                <option value="-1" disabled>Select a type</option>
                 {this.state.courses.map((course) => <option key={course.name} value={course.id}>{course.name}</option>)}
             </select>
             </div>) :

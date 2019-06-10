@@ -8,7 +8,6 @@ import image2 from '../img/User-logo.jpg';
 const Admin = props => (
     <nav className="admin-nav">
         <ul className="admin-ul">
-            
             {props.role === "Admin" ?
             <div className="admin-main-div">
             <div className="admin-menu-div">
@@ -21,13 +20,14 @@ const Admin = props => (
                 </div>
             </div>
                 : undefined}
+            {props.role === "Teacher" || props.role === "Admin" ?
                 <div className="admin-main-div">
                 <div className="admin-menu-div">
                     <img className="admin-logo" src={image1} alt="grates-logo"></img>
-                    <li><NavLink className="admin-menu-link" to="/adminGrades">Admin grades</NavLink></li> 
-
+                    <li><NavLink className="admin-menu-link" to="/adminGrades">Admin grades</NavLink></li>
                 </div>
             </div>
+                : undefined}
         </ul>
     </nav>
 );

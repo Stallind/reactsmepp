@@ -18,8 +18,10 @@ class Grades extends React.Component {
         }
     }
     getId = () => {
-        let decoded = jwt_decode(jwt);
-        return decoded["id"]
+        if(jwt !== null) {
+            let decoded = jwt_decode(jwt);
+            return decoded["id"]
+        }
     };
 
     componentDidMount()  {

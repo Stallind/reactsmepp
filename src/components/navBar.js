@@ -9,23 +9,23 @@ const Navbar = props => (
         <ul className="nav-menu">
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/home">home</NavLink></li>
 
-
             {props.role === "Teacher" || props.role === "Student" ?
                 <>
                     <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">courses</NavLink></li>
-                    <li><NavLink className="nav-menu-link" activeClassName="activate" to="/grades">my grades</NavLink></li>
                     <li><NavLink className="nav-menu-link" activeClassName="activate" to="/profile">profile</NavLink></li>
                 </>
             : undefined}
 
 
-            {props.role === "Admin" || props.role === "Teacher" ?
+            {props.role === "Admin" ?
                 <li><NavLink className="nav-menu-link" activeClassName="activate" to="/admin">admin</NavLink></li>
                 : undefined}
 
+            {props.role === "Teacher" ?
+                <li><NavLink className="nav-menu-link" activeClassName="activate" to="/adminGrades">manage grades</NavLink></li>
+                : undefined}
+
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/login" onClick={props.logout()}>log out</NavLink></li>
-
-
         </ul>
     </nav>
 
