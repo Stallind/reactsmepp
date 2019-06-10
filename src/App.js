@@ -73,7 +73,7 @@ class App extends Component {
               <Navbar role={this.state.role} loggedIn={this.state.loggedIn} logout={() => this.handleLogout}/>
               <Route exact path="/" render={() => <Redirect to="/home"/> } />
               <Route path="/home" component={() => <Home user={this.getUser()}  /> } />
-              <Route path="/course" render={() => <Course title="Courses" />} />
+              <Route path="/course" component={() => <Course user={this.getUser()}  /> }  />
               <Route path="/adminCourse" component={AdminCourse}/>
               <Route path="/admin" component={() => <Admin role={this.state.role}/>}/>
               <Route path="/register" component={Register} />

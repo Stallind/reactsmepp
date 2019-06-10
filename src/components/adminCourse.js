@@ -56,7 +56,6 @@ class adminCourse extends React.Component {
         // axios.get(apiBaseUrl, this.state, {headers: {'Authorization': `Bearer ${jwt}`}})
         axios.get(`${currentApi}`)
             .then(response => {
-                console.log(response.data);
                 return response.data.map(course => ({
                     name: `${course.name}`,
                     points: `${course.points}`
@@ -80,14 +79,14 @@ class adminCourse extends React.Component {
 
     submitHendler = (e) => {
         e.preventDefault();
-        console.log(this.state);
         axios.post(apiBaseUrl,
-             {
+            {
                 name: this.state.name,
                 points: this.state.points
             },
-            { headers: { 'Authorization': `Bearer ${jwt}` } }
-            ).then(r => {
+            { 
+                headers: { 'Authorization': `Bearer ${jwt}` } 
+            }).then(r => {
             this.updateCourses();
             alert('Course has been registered');
         })

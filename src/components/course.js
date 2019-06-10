@@ -31,7 +31,8 @@ class Course extends React.Component {
         isLoading: true,
         errors: null,
         role: this.getRole(),
-        id: this.getId()
+        user: this.props.user,
+        id: this.props.user.id,
     };
 }
 
@@ -39,12 +40,6 @@ class Course extends React.Component {
         const jwt = getJwt();
         let decoded = jwt_decode(jwt);
         return decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-    };
-
-    getId = () => {
-        const jwt = getJwt();
-        let decoded = jwt_decode(jwt);
-        return decoded["id"]
     };
 
     componentDidMount(){
