@@ -29,6 +29,7 @@ class Register extends Component {
             email: '',
             password: '',
             role: '',
+            roleLabel: '',
             students: [],
             teachers: [],
             isLoading: true,
@@ -79,6 +80,13 @@ class Register extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    handleChange = (e) => {
+        let index = e.nativeEvent.target.selectedIndex;
+        let label = e.nativeEvent.target[index].value;
+        let value = e.target.value;
+        this.setState({ role: value, roleLabel: label });
+    };
+
     submitHendler = (e) => {
         e.preventDefault();
         axios.post('https://localhost:44339/api/register', this.state,{ headers: { 'Authorization': `Bearer ${jwt}` } })
@@ -125,8 +133,15 @@ class Register extends Component {
                                 <div>
                                     <TextField hintText="Enter password" floatingLabelText="Password" floatingLabelFixed={true} type="password" name="password" value={password} autoComplete="on" onChange={this.changeHandler}></TextField>
                                 </div>
+                                <br />
+                                <br />
                                 <div>
-                                    <TextField hintText="Enter role" floatingLabelText="Role" floatingLabelFixed={true} type="text" name="role" value={role} onChange={this.changeHandler}></TextField>
+                                    <select defaultValue={-1} onChange={this.handleChange}>
+                                        <option value="-1" disabled>Choose Role</option>
+                                        <option value="student">Student</option>
+                                        <option value="teacher">Teacher</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
                                 </div>
                                 <br />
                                 <RaisedButton label="Submit" type="submit"></RaisedButton>
