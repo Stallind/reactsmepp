@@ -78,8 +78,8 @@ class App extends Component {
               <Route path="/admin" component={() => <Admin role={this.state.role}/>}/>
               <Route path="/register" component={Register} />
               <Route path="/profile" component={() => <Profile user={this.getUser()}  /> } />
-              <Route path="/grades" component={Grades} />
-              <Route path="/adminGrades" component={AdminGrades} />
+              <Route path="/grades" component={() => <Grades user={this.getUser()}  /> } />
+              <Route path="/adminGrades" component={() => <AdminGrades user={this.getUser()}  /> } />
             </Authenticated>
           </Switch>
         </div>

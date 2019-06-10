@@ -48,10 +48,7 @@ class adminCourse extends React.Component {
         let decoded = jwt_decode(jwt);
         return decoded["id"]
     };
-
-    componentDidMount() {
-        console.log(this.state.role);
-
+    updateCourses = () =>{
         if (this.state.role !== "Admin") {
             currentApi = `${apiBaseUrlAdmin}${this.state.id}`;
         }
@@ -73,6 +70,9 @@ class adminCourse extends React.Component {
             })
             .catch(error => this.setState({ error, isLoading: false }));
     }
+    componentDidMount() {
+        this.updateCourses();
+    }
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value });
@@ -81,10 +81,14 @@ class adminCourse extends React.Component {
     submitHendler = (e) => {
         e.preventDefault();
         console.log(this.state);
-        axios.post(apiBaseUrl, this.state, {
-            headers: { 'Authorization': `Bearer ${jwt}` }
-        }).then(response => {
-            console.log(response);
+        axios.post(apiBaseUrl,
+             {
+                name: this.state.name,
+                points: this.state.points
+            },
+            { headers: { 'Authorization': `Bearer ${jwt}` } }
+            ).then(r => {
+            this.updateCourses();
             alert('Course has been registered');
         })
             .catch(error => {

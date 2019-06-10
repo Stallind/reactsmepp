@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { getJwt } from "../helpers/jwt";
-import jwt_decode from "jwt-decode";
 
 const jwt = getJwt();
 let apiBaseUrl = "https://localhost:44339/api/grades/";
@@ -11,18 +10,14 @@ class Grades extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.getId(),
+            user: this.props.user,
+            id: this.props.user.id,
             grades: [],
             isLoading: true,
             errors: null
         }
     }
-    getId = () => {
-        if(jwt !== null) {
-            let decoded = jwt_decode(jwt);
-            return decoded["id"]
-        }
-    };
+    
 
     componentDidMount()  {
        

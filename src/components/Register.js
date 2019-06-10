@@ -88,22 +88,28 @@ class Register extends Component {
     };
 
     submitHendler = (e) => {
-        e.preventDefault();
-        axios.post('https://localhost:44339/api/register', this.state,{ headers: { 'Authorization': `Bearer ${jwt}` } })
-            .then(response => {
-                alert('User has been registered');
-                this.updateUsers();
-                this.setState({firstName: '',
-                    lastName: '',
-                    socialSecurityNumber: '',
-                    email: '',
-                    password: '',
-                    role: ''
-                    });
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        if( this.state.role !== '')
+        {
+            e.preventDefault();
+            axios.post('https://localhost:44339/api/register', this.state,{ headers: { 'Authorization': `Bearer ${jwt}` } })
+                .then(response => {
+                    alert('User has been registered');
+                    this.updateUsers();
+                    this.setState({firstName: '',
+                        lastName: '',
+                        socialSecurityNumber: '',
+                        email: '',
+                        password: '',
+                        role: ''
+                        });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+        else{
+            alert("You Must Choose A Role")
+        }
     };
 
     render() {
