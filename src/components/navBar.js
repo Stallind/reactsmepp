@@ -11,7 +11,11 @@ const Navbar = props => (
 
             {props.role === "Teacher" || props.role === "Student" ?
                 <>
+
                     <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Courses</NavLink></li>
+
+                    <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Courses</NavLink></li>
+
                     <li><NavLink className="nav-menu-link" activeClassName="activate" to="/profile">Profile</NavLink></li>
                 </>
             : undefined}
