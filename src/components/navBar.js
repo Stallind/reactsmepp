@@ -7,25 +7,25 @@ const Navbar = props => (
         <img className="navbar-logo" src={image} alt="blue bird"></img>
 
         <ul className="nav-menu">
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/home">home</NavLink></li>
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/home">Home</NavLink></li>
 
             {props.role === "Teacher" || props.role === "Student" ?
                 <>
-                    <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">courses</NavLink></li>
-                    <li><NavLink className="nav-menu-link" activeClassName="activate" to="/profile">profile</NavLink></li>
+                    <li><NavLink className="nav-menu-link" activeClassName="activate" to="/course">Pourses</NavLink></li>
+                    <li><NavLink className="nav-menu-link" activeClassName="activate" to="/profile">Profile</NavLink></li>
                 </>
             : undefined}
 
 
             {props.role === "Admin" ?
-                <li><NavLink className="nav-menu-link" activeClassName="activate" to="/admin">admin</NavLink></li>
+                <li><NavLink className="nav-menu-link" activeClassName="activate" to="/admin">Admin</NavLink></li>
                 : undefined}
 
             {props.role === "Teacher" ?
-                <li><NavLink className="nav-menu-link" activeClassName="activate" to="/adminGrades">manage grades</NavLink></li>
+                <li><NavLink className="nav-menu-link" activeClassName="activate" to="/adminGrades">Manage grades</NavLink></li>
                 : undefined}
 
-            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/login" onClick={props.logout()}>log out</NavLink></li>
+            <li><NavLink className="nav-menu-link" activeClassName="activate" to="/login" onClick={props.logout()}>Log out</NavLink></li>
         </ul>
     </nav>
 
