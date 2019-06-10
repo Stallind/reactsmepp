@@ -21,7 +21,7 @@ const Admin = props => (
             </div>
                 : undefined}
             {props.role === "Teacher" || props.role === "Admin" ?
-                <div className="admin-main-div">
+                <div className="admin-main-div-2">
                 <div className="admin-menu-div">
                     <img className="admin-logo" src={image1} alt="grates-logo"></img>
                     <li><NavLink className="admin-menu-link" to="/adminGrades">Admin grades</NavLink></li>
