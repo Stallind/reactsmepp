@@ -29,7 +29,6 @@ class Register extends Component {
             email: '',
             password: '',
             role: '',
-            username: '',
             students: [],
             teachers: [],
             isLoading: true,
@@ -82,9 +81,8 @@ class Register extends Component {
 
     submitHendler = (e) => {
         e.preventDefault();
-        axios.post('https://localhost:44339/api/register', this.state, { headers: { 'Authorization': `Bearer ${jwt}` } })
+        axios.post('https://localhost:44339/api/register', this.state,{ headers: { 'Authorization': `Bearer ${jwt}` } })
             .then(response => {
-                console.log(response);
                 alert('User has been registered');
                 this.updateUsers();
                 this.setState({firstName: '',
@@ -92,8 +90,8 @@ class Register extends Component {
                     socialSecurityNumber: '',
                     email: '',
                     password: '',
-                    role: '',
-                    username: ''});
+                    role: ''
+                    });
             })
             .catch(error => {
                 console.log(error);
@@ -101,7 +99,7 @@ class Register extends Component {
     };
 
     render() {
-        const { firstName, lastName, socialSecurityNumber, email, password, role, username, isLoading, students, teachers } = this.state;
+        const { firstName, lastName, socialSecurityNumber, email, password, role, isLoading, students, teachers } = this.state;
         return (
             <div>
                 <MuiThemeProvider muiTheme={muiTheme}>
@@ -125,13 +123,10 @@ class Register extends Component {
                                     <TextField hintText="Enter email" floatingLabelText="Email" floatingLabelFixed={true} name="email" type="text" value={email} onChange={this.changeHandler}></TextField>
                                 </div>
                                 <div>
-                                    <TextField hintText="Enter password" floatingLabelText="Password" floatingLabelFixed={true} type="password" name="password" value={password} onChange={this.changeHandler}></TextField>
+                                    <TextField hintText="Enter password" floatingLabelText="Password" floatingLabelFixed={true} type="password" name="password" value={password} autoComplete="on" onChange={this.changeHandler}></TextField>
                                 </div>
                                 <div>
                                     <TextField hintText="Enter role" floatingLabelText="Role" floatingLabelFixed={true} type="text" name="role" value={role} onChange={this.changeHandler}></TextField>
-                                </div>
-                                <div>
-                                    <TextField hintText="Enter username" floatingLabelText="Username" floatingLabelFixed={true} type="text" name="username" value={username}onChange={this.changeHandler}></TextField>
                                 </div>
                                 <br />
                                 <RaisedButton label="Submit" type="submit"></RaisedButton>

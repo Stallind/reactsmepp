@@ -44,7 +44,7 @@ code {
 .nav-menu {
   display: flex;
   list-style: none;
-  padding-top: 20px
+  padding-top: 20px;
 }
 
 .nav-menu-link {
@@ -121,7 +121,7 @@ code {
   width: 90%;
   margin: auto;
   padding-bottom: 50px;
-  text-align: left
+  text-align: left;
 }
 
 .home-news{
