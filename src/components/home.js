@@ -24,7 +24,7 @@ class Home extends Component {
     render(){
 
         let user = this.props.user;
-
+        var bacground = require('../img/happy.jpg');
     return (
         <div>
             <div>
@@ -41,12 +41,14 @@ class Home extends Component {
                     <p>This great year is almost over and now we have to start thinking about next year. For all of you that are graduating this year, congratulations we are so proud of all of you and whish you all the best in the future. But for thoes who are not we have finally published the schedule for next year.</p>
                     <p>...</p>
                 </div>
+                <br></br>
                 <div className="home-news">
                     <h3>Visit from Apple</h3>
                     <p>Good day students!</p>
                     <p>Next monday we are having a really exciting visit from the founder of Apple (yes we all know he is dead). He will be telling us all about how it was for him to start as a developer and how we can get job at Apple after you have finished school!!</p>
                     <p>...</p>
                 </div>
+                <br></br>
                 <div className="home-news">
                     <h3>Finally it´s time for a party.</h3>
                     <p>Good evening students.</p>
@@ -55,7 +57,7 @@ class Home extends Component {
                 </div>
 
                 </div>
-            </div>
+            </div> 
         </div>
 
     )

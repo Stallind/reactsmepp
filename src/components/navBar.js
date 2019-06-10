@@ -4,8 +4,10 @@ import image from '../img/BirdBlue.png';
 
 const Navbar = props => (
     <nav className="nav">
-        <img className="navbar-logo" src={image} alt="blue bird"></img>
-
+        <a className="navbar-a" href="/home">
+            <img className="navbar-logo" src={image} alt="blue bird"></img>
+        </a>
+        
         <ul className="nav-menu">
             <li><NavLink className="nav-menu-link" activeClassName="activate" to="/home">Home</NavLink></li>
 
