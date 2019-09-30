@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getJwt} from "./helpers/jwt";
+import { getJwt } from "../helpers/jwt";
 import { withRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
@@ -13,12 +13,11 @@ class Authenticated extends Component {
     }
 
     componentDidMount() {
-
         const jwt = getJwt();
-
         if (jwt) {
             let decoded = jwt_decode(jwt);
-            this.setState({ user: decoded.name});
+            this.setState({ user: decoded.name });
+            //this.props.history.push('/home');
         }
         else {
             this.props.history.push('/login');
@@ -36,6 +35,7 @@ class Authenticated extends Component {
             <div>
                 {this.props.children}
             </div>
+            //<h1>hello {this.state.user}</h1>
         );
     }
 }

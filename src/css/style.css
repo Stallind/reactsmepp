@@ -1,0 +1,412 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-osx-font-smoothing: grayscale;
+  background-color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  max-width: 100%;
+  margin: auto;
+}
+
+/*NAVBAR-------------------------------------------------*/
+.navbar-logo{
+  width: 30%;
+  height: 90%;
+  background-size: cover;
+  float: left;
+}
+
+.logo-link {
+  color: rgb(31, 32, 34);
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  padding: 40px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0px solid grey;
+  padding: 10px 30px;
+  box-shadow: 0px 0.1px 8px 0px rgb(145, 145, 145);
+  background-color: white;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding-top: 20px;
+}
+
+.nav-menu-link {
+  display: inline-block;
+  margin: 5px;
+  /* border: 1px solid rgb(211, 211, 211); */
+  color: rgb(59, 59, 59);
+  text-decoration: none;
+  /* border-radius: 2px; */
+  padding: 5px 10px;
+  background-color: white;
+  /*transition: all 0.3s ease-in-out;*/
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-menu-link:hover {
+  border-bottom: 2px solid rgb(40, 134, 158);
+  /* color: white;
+  background-color: rgb(40, 134, 158); */
+  /*transition: all 0.3s ease-in-out;*/
+  cursor: pointer;
+}
+
+.nav-menu-link.activate{
+   border-bottom: 2px solid rgb(40, 134, 158);
+  /* background-color: rgb(40, 134, 158);
+  color: white; */
+}
+
+.navbar-a{
+  
+}
+/*------------------------------------------------*/
+
+/*ADMIN-------------------------------------------*/
+.admin-nav{
+  display: inline;
+}
+
+.admin-ul{
+  list-style: none;
+  display: flex;
+  text-align: left;
+}
+
+.admin-menu-link{
+  display: inline-flex;
+  text-decoration: none;
+  font-size: 25px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 155px;
+  padding-top: 25px;
+}
+
+.admin-main-div{
+  display: flex;
+  padding-top: 20px;
+  padding-left: 25px;
+}
+
+.admin-main-div-2{
+  display: flex;
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+.admin-menu-div{
+  width: 450px;
+  height: 300px;
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  margin: 10px;
+}
+
+.admin-logo{
+  height: 200px;
+  padding-left: 120px;
+  padding-top: 10px;
+}
+/*------------------------------------------------*/
+
+/*HOME--------------------------------------------*/
+.main-content{
+  width: 90%;
+  margin: auto;
+  padding-bottom: 50px;
+  text-align: left;
+}
+
+.home-news{
+  box-shadow: 0px 0.1px 8px 0px rgb(167, 165, 165);
+  padding: 20px;
+  color: rgb(59, 59, 59);
+  background-color: rgb(238, 238, 238);
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-container h2{
+  color: rgb(40, 134, 158);
+  padding-left: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-container h1{
+  text-align: center;
+  color: rgb(40, 134, 158);
+}
+
+.home-text{
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+  margin-right: 100px
+}
+
+/*---------------------------------------------*/
+
+/*SCHEDULE-------------------------------------*/
+.container{
+  margin: auto;
+  display: inline;
+  justify-content: space-around;
+}
+/*---------------------------------------------*/
+
+/*LOGIN----------------------------------------*/
+.logo-img{
+  height: 80px;
+  width: 190px;
+  margin: 5px;
+  padding-right: 90px;
+}
+/*---------------------------------------------*/
+
+/*COURSE---------------------------------------*/
+.course-get{
+  display: inline-flex;
+  color: rgb(40, 134, 158);
+  font-size: 18px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.course-name-get{
+  padding: 10px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.course-get-div{
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.courses-main-content{
+   width: auto;
+   margin-top: 20px;
+   margin-left: 120px;
+   margin-right: 120px;
+}
+
+.courses-container{
+ display: inline-flex;
+  justify-content: space-between;
+   border-bottom: 2px solid rgb(219, 219, 219);
+}
+
+.courses-container h5{
+  padding: 0px 270px;
+  font-size: 20px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif;
+ 
+}
+
+.course-points{
+  margin-left: 550px;
+}
+
+.courses-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(209, 209, 209);
+  padding: 20px;
+  margin: 20px;
+}
+/*---------------------------------------------*/
+
+/*COURSE-ADMIN---------------------------------*/
+.admin-course-get{
+  display: inline-flex;
+  color: rgb(40, 134, 158);
+  font-size: 18px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-course-get-div{
+   border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.admin-courses-main-content{
+  padding: 15px;
+  margin-left: 20px;
+  width: 950px;
+  box-shadow: 0px 0.1px 8px 0px rgb(209, 209, 209);
+}
+
+.admin-courses-container{
+ display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(219, 219, 219);
+}
+
+.admin-courses-container h5{
+  padding: 0px 81px;
+  font-size: 20px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.admin-course-points{
+  margin-left: 500px;
+}
+
+.admin-course-div{
+  display: flex;
+  padding: 30px;
+  margin: 20px;
+}
+
+.admin-course-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  padding: 80px 200px;
+  color: rgb(63, 63, 63);
+}
+
+.admin-course-new{
+  font-size: 25px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif
+}
+/*-----------------------------------------*/
+
+/*REGISTER---------------------------------*/
+.reg-new{
+  font-size: 25px;
+  color: rgb(40, 134, 158);
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.reg-div{
+  display: flex;
+  padding: 30px px;
+  margin: 20px;
+}
+
+.reg-student{
+  background: rgb(23, 54, 75);
+  padding: 30px 30px ;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  height: 20px;
+  width: 290px
+}
+
+.reg-name-container{
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.reg-name-container h5{
+  padding: 0px 81px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.reg-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  padding: 80px 180px;
+  color: rgb(63, 63, 63);
+}
+
+.reg-form{
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.reg-div-two{
+  background-color: rgb(23, 54, 75);
+}
+
+.reg-student-get{
+  display: inline-flex;
+  color: white;
+  padding: 2px;
+  margin-left: 45px;
+  width: 150px
+}
+
+.reg-student-get2{
+  display: inline-flex;
+  color: white;
+  padding: 2px;
+  margin-left: 80px
+}
+
+.reg-student-get-main{
+  display: flex
+}
+
+/*------------------------------------------*/
+
+/*GRATES------------------------------------*/
+.grates-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  padding: 20px;
+  margin: 30px 500px;
+  color: #28869e;
+}
+
+.grates-main h2{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #28869e;
+  border-bottom: 2px solid rgb(223, 223, 223);
+}
+
+.grates-main p{
+  color: rgb(40, 134, 158);
+}
+
+.grates-main select{
+   color: rgb(40, 134, 158);
+}
+
+.grates-main button{
+  background-color: rgb(40, 134, 158);
+  border: none;
+  padding: 7px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  border-radius: 5px 5px;
+}
+
+/*------------------------------------------*/
+
+/*PROFILE-----------------------------------*/
+.profile-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  padding: 20px;
+  margin: 30px 500px;
+  color: #28869e;
+}
+/*------------------------------------------*/
+
+/*GRATES-STUDENT-----------------------------------*/
+.grates-student-main{
+  box-shadow: 0px 0.1px 8px 0px rgb(197, 197, 197);
+  padding: 20px;
+  margin: 30px 500px;
+  color: #28869e;
+}
+/*------------------------------------------*/
